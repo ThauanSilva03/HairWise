@@ -1,0 +1,41 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:id="@+id/textViewLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Busca manual"
+        android:textSize="24sp"
+        android:textAlignment="center"
+        android:layout_marginBottom="44dp"
+        android:layout_marginTop="32dp" />
+
+    <EditText
+        android:id="@+id/editTextQuimico"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Digite o nome do composto"
+        android:inputType="text"
+        android:padding="8dp" />
+
+    <Button
+        android:id="@+id/buttonBuscar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Buscar" />
+
+    <TextView
+        android:id="@+id/textViewResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Resultado aparecerá aqui"
+        android:textSize="16sp"
+        android:padding="8dp"
+        android:layout_marginTop="32dp" />
+</LinearLayout>
