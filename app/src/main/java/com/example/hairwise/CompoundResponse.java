@@ -16,7 +16,6 @@ public class CompoundResponse {
         this.informationList = informationList;
     }
 
-    // Classe interna para mapear "InformationList"
     public static class InformationList {
         @SerializedName("Information")
         private List<Information> information;
@@ -30,7 +29,6 @@ public class CompoundResponse {
         }
     }
 
-    // Classe interna para mapear os dados de "Information"
     public static class Information {
         @SerializedName("CID")
         private int cid;

@@ -1,18 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp">
-
+    android:padding="16dp"
+    android:background="#F5F5F5">
 
     <TextView
         android:id="@+id/textViewLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Busca manual"
+        android:text="Busca Manual"
         android:textSize="24sp"
-        android:textAlignment="center"
-        android:layout_marginBottom="44dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="#333333"
+        android:layout_marginBottom="32dp"
         android:layout_marginTop="32dp" />
 
     <EditText
@@ -21,14 +24,22 @@
         android:layout_height="wrap_content"
         android:hint="Digite o nome do composto"
         android:inputType="text"
-        android:padding="8dp" />
+        android:padding="12dp"
+
+        android:textColor="#000000"
+        android:textColorHint="#888888"
+        android:layout_marginBottom="16dp" />
 
     <Button
         android:id="@+id/buttonBuscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Buscar" />
+        android:text="Buscar"
+        android:backgroundTint="#6200EE"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:layout_marginBottom="24dp"
+        android:elevation="2dp" />
 
     <TextView
         android:id="@+id/textViewResultado"
@@ -36,6 +47,10 @@
         android:layout_height="wrap_content"
         android:text="Resultado aparecerá aqui"
         android:textSize="16sp"
-        android:padding="8dp"
-        android:layout_marginTop="32dp" />
+        android:padding="12dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp"
+        android:layout_marginTop="16dp"
+        android:textColor="#555555"
+        android:gravity="center" />
 </LinearLayout>

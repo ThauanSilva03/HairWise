@@ -26,12 +26,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Vinculando os componentes do layout
         editTextQuimico = findViewById(R.id.editTextQuimico);
         buttonBuscar = findViewById(R.id.buttonBuscar);
         textViewResultado = findViewById(R.id.textViewResultado);
 
-        // Configurando o clique do botão
         buttonBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,10 +45,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void buscarDadosDoComposto(String nomeComposto) {
-        // Configurando Retrofit
         PubChemApi apiService = ApiClient.getRetrofitInstance().create(PubChemApi.class);
 
-        // Fazendo a chamada para a API
         Call<CompoundResponse> call = apiService.getDescription(nomeComposto);
 
         call.enqueue(new Callback<CompoundResponse>() {
@@ -60,16 +56,14 @@ public class MainActivity extends AppCompatActivity {
                     CompoundResponse compoundResponse = response.body();
 
                     if (compoundResponse != null) {
-                        // Acessando a lista de informações
                         List<CompoundResponse.Information> informationList = compoundResponse.getInformationList().getInformation();
 
                         if (informationList != null && !informationList.isEmpty()) {
-                            // Pegando o primeiro item da lista (você pode alterar isso conforme necessário)
                             CompoundResponse.Information info2 = informationList.get(0);
-                            CompoundResponse.Information info = informationList.get(1); // index 1 para pegar o item com a descrição
+                            CompoundResponse.Information info = informationList.get(1);
 
-                            String titulo = info2.getTitle(); // Nome do composto
-                            String descricao = info.getDescription(); // Descrição do composto
+                            String titulo = info2.getTitle();
+                            String descricao = info.getDescription();
 
                             Log.d("API Response", "Título: " + titulo);
                             Log.d("API Response", "Descrição: " + descricao);
