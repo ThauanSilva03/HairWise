@@ -35,5 +35,13 @@ public class Home extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        scannerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, BuscaRotulo.class);
+                startActivity(intent);
+            }
+        });
     }
 }

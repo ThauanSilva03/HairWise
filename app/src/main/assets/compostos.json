@@ -1,0 +1,18 @@
+[
+    {
+        "nome": "limonene",
+        "descricao": "suco de limao",
+        "funcao": "suco de limonations"
+    },
+    {
+        "nome": "pindamoiangaba",
+        "descricao": "paracetamol porra",
+        "funcao": "analgesico"
+    },
+    {
+        "nome": "seco",
+        "descricao": "nao molhado",
+        "funcao": "nao molhar"
+    }
+
+]

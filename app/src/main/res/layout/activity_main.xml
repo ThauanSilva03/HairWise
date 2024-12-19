@@ -1,22 +1,21 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#F5F5F5">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/textViewLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Busca Manual"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:textColor="#333333"
+        android:layout_marginTop="32dp"
         android:layout_marginBottom="32dp"
-        android:layout_marginTop="32dp" />
+        android:gravity="center"
+        android:text="Busca Manual"
+        android:textColor="#333333"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/editTextQuimico"
@@ -25,8 +24,6 @@
         android:layout_marginBottom="16dp"
         android:hint="Digite o nome do composto"
         android:inputType="text"
-
-        android:outlineProvider="none"
         android:padding="12dp"
         android:textColor="#000000"
         android:textColorHint="#888888" />
@@ -42,28 +39,83 @@
         android:text="Buscar"
         android:textColor="#FFFFFF" />
 
-    <TextView
-        android:id="@+id/textViewResultado"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Resultado aparecerá aqui"
-        android:textSize="16sp"
-        android:padding="12dp"
-        android:background="#FFFFFF"
-        android:elevation="2dp"
-        android:layout_marginTop="16dp"
-        android:textColor="#555555"
-        android:gravity="center"
-        android:layout_marginBottom="24dp"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
 
-    <Button
-        android:id="@+id/buttonVoltar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="#2C838D"
-        android:elevation="2dp"
-        android:padding="12dp"
-        android:text="Voltar"
-        android:textColor="#FFFFFF" />
+        <!-- Resultado Local -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewResultadoLocal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:text="Resultado local aparecerá aqui"
+                    android:textColor="#555555"
+                    android:textSize="14sp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <!-- Resultado API -->
+        <LinearLayout
+            android:id="@+id/apiResponseLayout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center"
+                android:text="Resultado da API"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textViewResultadoAPI"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#FFFFFF"
+                    android:elevation="2dp"
+                    android:padding="12dp"
+                    android:text="Resultado da API aparecerá aqui"
+                    android:textColor="#555555"
+                    android:textSize="14sp" />
+            </ScrollView>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/buttonVoltar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="#1C575E"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:text="Voltar"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
 </LinearLayout>
