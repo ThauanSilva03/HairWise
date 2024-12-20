@@ -1,18 +1,202 @@
 [
     {
-        "nome": "limonene",
-        "descricao": "suco de limao",
-        "funcao": "suco de limonations"
+        "nome": "Aqua/Water",
+        "descricao": "É a água usada como base em produtos cosméticos. Atua como solvente, permitindo que os outros ingredientes se misturem uniformemente. Em cosméticos, a água é purificada para remover impurezas e evitar contaminações.",
+        "funcao": "Serve como base para diluir outros ingredientes e facilitar a aplicação do produto. Também contribui para a hidratação inicial da pele ou cabelo."
     },
     {
-        "nome": "pindamoiangaba",
-        "descricao": "paracetamol porra",
-        "funcao": "analgesico"
+        "nome": "Sodium Laureth Sulfate",
+        "descricao": "É um surfactante aniônico, amplamente utilizado em produtos de limpeza pessoal como shampoos, sabonetes líquidos e pastas de dente. SLES é produzido através da etoxilação do Sodium Lauryl Sulfate (SLS), um processo químico que adiciona moléculas de óxido de etileno. Isso o torna menos irritante e mais suave para a pele e o cabelo.",
+        "funcao": "Atua como agente de limpeza, removendo óleos, sujeiras e resíduos do cabelo e do couro cabeludo. É responsável por criar espuma abundante, o que melhora a sensação de limpeza durante o uso."
     },
     {
-        "nome": "seco",
-        "descricao": "nao molhado",
-        "funcao": "nao molhar"
+        "nome": "Sodium Lauryl Sulfate",
+        "descricao": "É um surfactante aniônico utilizado em produtos de limpeza pessoal. Ele ajuda a criar espuma e remover sujeira e óleos. É conhecido por ser eficaz, mas pode ser mais irritante do que outros surfactantes como o Sodium Laureth Sulfate.",
+        "funcao": "Promove a limpeza ao reduzir a tensão superficial da água, permitindo que óleos e sujeiras sejam suspensos e enxaguados."
+    },
+    {
+        "nome": "Cocamidopropyl Betaine",
+        "descricao": "É um surfactante anfótero derivado do óleo de coco. É utilizado para suavizar fórmulas de limpeza, reduzindo a irritação causada por surfactantes mais fortes. Também contribui para a formação de espuma.",
+        "funcao": "Atua como um agente de limpeza suave, ajudando na remoção de sujeiras enquanto mantém a pele e o cabelo menos irritados."
+    },
+    {
+        "nome": "Sodium Chloride",
+        "descricao": "Conhecido como sal de cozinha, é um ingrediente utilizado em cosméticos principalmente para ajustar a viscosidade de produtos líquidos, como shampoos.",
+        "funcao": "Serve para espessar formulações de limpeza e ajustar a consistência do produto final."
+    },
+    {
+        "nome": "Glycol Distearate",
+        "descricao": "É um éster derivado de ácidos graxos utilizado em produtos cosméticos para dar aparência perolada e suavidade ao toque.",
+        "funcao": "Melhora a estética do produto, proporcionando brilho perolado, e também atua como agente emoliente, deixando a pele ou o cabelo macio."
+    },
+    {
+        "nome": "Parfum/Fragrance",
+        "descricao": "É uma mistura de compostos aromáticos projetados para conferir fragrância agradável ao produto. A composição exata pode variar de acordo com o fabricante.",
+        "funcao": "Fornece um aroma agradável, melhorando a experiência sensorial do usuário."
+    },
+    {
+        "nome": "Hexylene Glycol",
+        "descricao": "É um solvente usado em cosméticos para dissolver ingredientes e melhorar a estabilidade da fórmula. Também possui propriedades umectantes, ajudando a reter a umidade.",
+        "funcao": "Atua como solvente e agente umectante, mantendo a hidratação na pele e na fórmula."
+    },
+    {
+        "nome": "Guar Hydroxypropyltrimonium Chloride",
+        "descricao": "É um derivado da goma guar utilizado como agente condicionante em produtos para os cabelos. Ele reduz o frizz e melhora a penteabilidade.",
+        "funcao": "Proporciona condicionamento ao cabelo, tornando-o mais macio e fácil de pentear."
+    },
+    {
+        "nome": "Niacinamide",
+        "descricao": "Também conhecida como vitamina B3, é um ingrediente ativo multifuncional utilizado para melhorar a hidratação, uniformizar o tom da pele e fortalecer a barreira cutânea.",
+        "funcao": "Ajuda a hidratar a pele, reduzir manchas e aumentar a elasticidade."
+    },
+    {
+        "nome": "Cocamide MEA",
+        "descricao": "É um composto derivado do óleo de coco usado como estabilizador de espuma e agente espessante em produtos de limpeza.",
+        "funcao": "Melhora a formação de espuma e ajusta a consistência do produto."
+    },
+    {
+        "nome": "Coco-Betaine",
+        "descricao": "É um surfactante derivado do óleo de coco, utilizado para limpar suavemente sem ressecar a pele ou o cabelo.",
+        "funcao": "Atua como agente de limpeza suave e formador de espuma."
+    },
+    {
+        "nome": "Ricinus Communis Seed Oil/Castor Seed Oil",
+        "descricao": "É o óleo de rícino, conhecido por suas propriedades hidratantes e emolientes. Rico em ácidos graxos, ajuda a nutrir a pele e o cabelo.",
+        "funcao": "Hidrata profundamente e ajuda a proteger a pele e o cabelo contra o ressecamento."
+    },
+    {
+        "nome": "Sodium Benzoate",
+        "descricao": "É um conservante amplamente utilizado em cosméticos e alimentos para prevenir o crescimento de fungos e bactérias.",
+        "funcao": "Prolonga a vida útil do produto ao inibir a proliferação de microrganismos."
+    },
+    {
+        "nome": "Sodium Hydroxide",
+        "descricao": "Conhecido como soda cáustica, é utilizado em pequenas quantidades para ajustar o pH de produtos cosméticos.",
+        "funcao": "Garante que o pH do produto seja adequado para a pele e o cabelo, evitando irritações."
+    },
+    {
+        "nome": "Hydrolyzed Wheat Protein",
+        "descricao": "Proteína de trigo hidrolisada que penetra nos fios de cabelo, fortalecendo-os e melhorando sua elasticidade.",
+        "funcao": "Ajuda a reparar e proteger o cabelo contra danos, aumentando a resistência e o brilho."
+    },
+    {
+        "nome": "Hydrolyzed Corn Protein",
+        "descricao": "Proteína de milho hidrolisada que foi quebrada em fragmentos menores para facilitar sua penetração nos fios de cabelo. É rica em aminoácidos que ajudam na nutrição do cabelo.",
+        "funcao": "Fortalece os fios, melhora a elasticidade e ajuda a reparar danos causados por tratamentos químicos ou calor."
+    },
+    {
+        "nome": "Hydrolyzed Soy Protein",
+        "descricao": "Proteína de soja hidrolisada, processada para ser facilmente absorvida pelo cabelo ou pela pele. Contém nutrientes essenciais que ajudam a revitalizar os fios.",
+        "funcao": "Contribui para a hidratação, fortalecimento e reparação do cabelo, deixando-o mais saudável e brilhante."
+    },
+    {
+        "nome": "Phenoxyethanol",
+        "descricao": "Conservante usado em cosméticos para prevenir o crescimento de microrganismos. É uma alternativa mais suave a conservantes tradicionais como parabenos.",
+        "funcao": "Prolonga a vida útil do produto, garantindo sua segurança e eficácia durante o uso."
+    },
+    {
+        "nome": "Steareth-6",
+        "descricao": "Um emulsificante usado para misturar água e óleo em cosméticos. É derivado de ácidos graxos e proporciona uma textura uniforme.",
+        "funcao": "Ajuda a estabilizar fórmulas e criar emulsões suaves, como cremes e loções."
+    },
+    {
+        "nome": "Acetic Acid",
+        "descricao": "Também conhecido como ácido acético, é um composto orgânico utilizado para ajustar o pH de cosméticos e produtos capilares.",
+        "funcao": "Regula o pH do produto, garantindo que ele seja adequado para uso na pele e no cabelo."
+    },
+    {
+        "nome": "PEG-100 Stearate",
+        "descricao": "É um emulsificante que combina água e óleo para criar uma textura homogênea. É derivado de ácidos graxos naturais.",
+        "funcao": "Ajuda a estabilizar a fórmula e proporciona uma textura cremosa em produtos como loções e condicionadores."
+    },
+    {
+        "nome": "Trideceth-10",
+        "descricao": "É um agente emulsificante e solubilizante utilizado para misturar ingredientes insolúveis em água.",
+        "funcao": "Facilita a integração de ingredientes oleosos na fórmula, melhorando sua consistência."
+    },
+    {
+        "nome": "Trideceth-3",
+        "descricao": "Semelhante ao Trideceth-10, é usado como emulsificante para misturar componentes aquosos e oleosos.",
+        "funcao": "Contribui para a uniformidade da fórmula, garantindo uma aplicação suave e consistente."
+    },
+    {
+        "nome": "Salicylic Acid",
+        "descricao": "É um beta-hidroxiácido (BHA) amplamente usado em produtos de cuidados com a pele por suas propriedades esfoliantes e anti-inflamatórias.",
+        "funcao": "Ajuda a remover células mortas da pele, prevenir acne e aliviar irritações no couro cabeludo."
+    },
+    {
+        "nome": "Dimethicone",
+        "descricao": "É um silicone amplamente usado em cosméticos como agente condicionante e formador de barreira.",
+        "funcao": "Protege a pele e o cabelo, proporcionando maciez, reduzindo o frizz e facilitando o penteado."
+    },
+    {
+        "nome": "Limonene",
+        "descricao": "Um composto aromático derivado de óleos cítricos. É utilizado como fragrância em produtos cosméticos.",
+        "funcao": "Confere um aroma fresco e cítrico aos produtos."
+    },
+    {
+        "nome": "Fumaric Acid",
+        "descricao": "É um ácido orgânico usado como ajustador de pH e estabilizador em cosméticos.",
+        "funcao": "Garante a estabilidade do pH do produto e ajuda na preservação da fórmula."
+    },
+    {
+        "nome": "Benzyl Salicylate",
+        "descricao": "É um composto químico usado como fixador de fragrâncias em produtos cosméticos.",
+        "funcao": "Ajuda a prolongar a duração do perfume no produto."
+    },
+    {
+        "nome": "Linalool",
+        "descricao": "Um composto aromático encontrado em óleos essenciais, com um perfume floral suave.",
+        "funcao": "Contribui para a fragrância agradável do produto."
+    },
+    {
+        "nome": "Benzyl Alcohol",
+        "descricao": "Álcool aromático usado como conservante e solvente em produtos cosméticos.",
+        "funcao": "Ajuda a estabilizar a fórmula e preservar o produto contra microrganismos."
+    },
+    {
+        "nome": "Panthenol",
+        "descricao": "Também conhecido como pró-vitamina B5, é um ingrediente hidratante usado em produtos para pele e cabelo.",
+        "funcao": "Hidrata profundamente, melhora a elasticidade e promove a regeneração celular."
+    },
+    {
+        "nome": "Amodimethicone",
+        "descricao": "É um silicone modificado usado em produtos para os cabelos. Fornece condicionamento e proteção sem deixar resíduos pesados.",
+        "funcao": "Reduz o frizz, melhora a penteabilidade e protege os fios contra danos."
+    },
+    {
+        "nome": "Alpha-Isomethyl Ionone",
+        "descricao": "Composto aromático usado em cosméticos para fornecer fragrância floral.",
+        "funcao": "Contribui para a fragrância do produto, tornando-o mais agradável de usar."
+    },
+    {
+        "nome": "Carbomer",
+        "descricao": "É um agente espessante amplamente utilizado para criar texturas em géis e loções.",
+        "funcao": "Proporciona consistência ao produto e melhora sua aplicação."
+    },
+    {
+        "nome": "Geraniol",
+        "descricao": "Um composto natural com aroma floral, encontrado em óleos essenciais como o de rosa e citronela.",
+        "funcao": "Contribui para a fragrância floral do produto."
+    },
+    {
+        "nome": "Citric Acid",
+        "descricao": "Ácido cítrico amplamente usado como regulador de pH e antioxidante em produtos cosméticos.",
+        "funcao": "Regula o pH da fórmula e ajuda a manter a estabilidade do produto."
+    },
+    {
+        "nome": "Citronellol",
+        "descricao": "Um composto com aroma floral-cítrico, encontrado em óleos essenciais.",
+        "funcao": "Proporciona fragrância floral ao produto."
+    },
+    {
+        "nome": "Coumarin",
+        "descricao": "Composto aromático com perfume doce e amadeirado, encontrado em várias plantas.",
+        "funcao": "Contribui para a fragrância do produto, conferindo uma nota adocicada."
+    },
+    {
+        "nome": "Hexyl Cinnamal",
+        "descricao": "Fragrância sintética com aroma floral, amplamente utilizada em cosméticos.",
+        "funcao": "Proporciona um perfume floral e agradável aos produtos."
     }
-
 ]

@@ -152,6 +152,29 @@ public class CompostoDatabaseHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public List<String> getAllCompostosNomes() {
+        List<String> compostosNomes = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_COMPOSTOS, new String[]{COLUMN_NOME}, null, null, null, null, null);
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                String nomeComposto = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOME));
+                compostosNomes.add(nomeComposto);
+
+                // Log para verificar se o nome está sendo adicionado
+                Log.d("CompostosDB", "Composto encontrado: " + nomeComposto);
+            } while (cursor.moveToNext());
+            cursor.close();
+        }
+
+        // Log para verificar a lista completa de compostos
+        Log.d("CompostosDB", "Compostos encontrados: " + compostosNomes.toString());
+
+        return compostosNomes;
+    }
+
+
     public List<Composto> getAllCompostos() {
         List<Composto> compostos = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();

@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,16 +33,21 @@ import com.google.mlkit.vision.text.latin.TextRecognizerOptions;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class BuscaRotulo extends AppCompatActivity {
 
-    Button scannerBtn, copyBtn;
-    TextView textView_data;
+    private Button scannerBtn, copyBtn;
+    private TextView textView_data;
     private String currentPhotoPath;
     private ActivityResultLauncher<String> requestPermissionLauncher;
     private ActivityResultLauncher<Uri> takePictureLauncher;
+    private final CompoundList cl = new CompoundList();
+    private final List<String> keywords = cl.getKeywords();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +59,11 @@ public class BuscaRotulo extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
         scannerBtn = findViewById(R.id.scannerBtn);
         copyBtn = findViewById(R.id.copyBtn);
         textView_data = findViewById(R.id.textView_data);
-
+        
         requestPermissionLauncher = registerForActivityResult( //Pedindo permissao da camera
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
@@ -113,7 +120,8 @@ public class BuscaRotulo extends AppCompatActivity {
 
         recognizer.process(image)
                 .addOnSuccessListener(ocrText -> {
-                    textView_data.setText(ocrText.getText());
+                    List<String> result = extrairPalavras(ocrText.getText(), keywords);
+                    textView_data.setText(result.toString());
                     textView_data.setMovementMethod(new ScrollingMovementMethod());
                     copyBtn.setVisibility(View.VISIBLE);
                     copyBtn.setOnClickListener(v -> {
@@ -121,7 +129,7 @@ public class BuscaRotulo extends AppCompatActivity {
                                 this,
                                 ClipboardManager.class
                         );
-                        ClipData clip = ClipData.newPlainText("Recognized text", ocrText.getText());
+                        ClipData clip = ClipData.newPlainText("Recognized text", result.toString() );
                         if(clipboard != null){
                             clipboard.setPrimaryClip(clip);
                             Toast.makeText(this, "Texto copiado", Toast.LENGTH_SHORT).show();
@@ -132,4 +140,18 @@ public class BuscaRotulo extends AppCompatActivity {
                     Toast.makeText(this, "Failed to recognized text", Toast.LENGTH_SHORT).show()
                 );
     }
+    public List<String> extrairPalavras(String texto, List<String> palavrasChaves){
+        List<String> palavrasEncontradas = new ArrayList<>();
+
+        for(String palavra : palavrasChaves){
+            if(texto.toLowerCase().contains(palavra.toLowerCase())){
+                palavrasEncontradas.add(palavra);
+            }
+        }
+        return palavrasEncontradas;
+    }
+//    private void initializeDatabase() {
+//        databaseHelper = new CompostoDatabaseHelper(this);
+//        databaseHelper.verificarEAtualizarDados();
+//    }
 }
