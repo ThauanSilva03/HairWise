@@ -13,10 +13,8 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,14 +37,10 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class BuscaRotulo extends AppCompatActivity {
 
@@ -79,7 +73,7 @@ public class BuscaRotulo extends AppCompatActivity {
 
         gridLayout.setColumnCount(columnCount);
 
-        requestPermissionLauncher = registerForActivityResult( //Pedindo permissao da camera
+        requestPermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
                     if(isGranted){
@@ -102,7 +96,6 @@ public class BuscaRotulo extends AppCompatActivity {
                 }
         );
 
-        //Chamando o pedido de uso da camera
         scannerBtn.setOnClickListener(view ->
                 requestPermissionLauncher.launch(Manifest.permission.CAMERA)
         );
@@ -136,26 +129,22 @@ public class BuscaRotulo extends AppCompatActivity {
 
         recognizer.process(image)
                 .addOnSuccessListener(ocrText -> {
-                    // Extrai palavras-chave reconhecidas
+
                     List<String> result = extrairPalavras(ocrText.getText(), keywords);
 
                     if (result != null && !result.isEmpty()) {
                         try {
-                            // Certifique-se de que o dbHelper foi inicializado
+
                             if (dbHelper == null) {
                                 dbHelper = new CompostoDatabaseHelper(this);
                             }
-
-                            // Busca o composto usando a primeira palavra-chave
-                            createButton(gridLayout, result, columnCount, textView_data);
-                            String dadosComposto = buscarDadosDoComposto(result.get(0));
-                            textView_data.setText(result.toString());
+                            createButton(result, columnCount, textView_data);
                         } catch (Exception e) {
                             Log.e("DatabaseError", "Erro ao buscar dados do composto: " + e.getMessage());
                             textView_data.setText("Erro ao acessar o banco de dados.");
                         }
                     } else {
-                        // Caso nenhuma palavra-chave seja encontrada
+
                         textView_data.setText("Nenhuma palavra-chave reconhecida.");
                     }
 
@@ -206,21 +195,23 @@ public class BuscaRotulo extends AppCompatActivity {
             return "Composto nao encontrado no banco de dados";
         }
     }
-    private void createButton(GridLayout container, List<String> items, int columnCount, TextView textView_data){
+    private void createButton(List<String> items, int columnCount, TextView textView_data){
         for (int i = 0; i < items.size(); i++) {
             String item = items.get(i);
 
             Button button = new Button(this);
             button.setText(item);
             button.setBackgroundColor(Color.parseColor("#56CCD9"));
-            //button.setTextColor(Color.parseColor("#FFFFFF"));
+            button.setTextColor(Color.parseColor("#FFFFFF"));
+
+            button.setGravity(Gravity.CENTER);
 
             GridLayout.LayoutParams params = new GridLayout.LayoutParams();
             params.width = 0;
             params.height = 200;
             params.columnSpec = GridLayout.spec(i % columnCount, 1, 1f);
             params.rowSpec = GridLayout.spec(i / columnCount);
-            params.setMargins(2,2,2,2);
+            params.setMargins(2,0,2,2);
 
 
             button.setLayoutParams(params);
