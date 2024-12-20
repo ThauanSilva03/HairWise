@@ -8,26 +8,59 @@
     android:background="#F5F5F5"
     tools:context=".BuscaRotulo">
 
+    <!-- ScrollView para o conteúdo -->
     <ScrollView
+        android:backgroundTint="f5f5f5f5"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_above="@id/linear_holder"
         android:layout_alignParentTop="true"
         android:layout_margin="8dp">
+        <!-- GridLayout para organizar os botões -->
+        <GridLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:alignmentMode="alignMargins"
+            android:columnCount="3"
+            android:padding="8dp"
+            android:rowOrderPreserved="true" />
+    </ScrollView>
+
+    <ScrollView
+        android:layout_width="399dp"
+        android:layout_height="338dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="305dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp">
 
         <TextView
             android:id="@+id/textView_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Texto vai aparecer aqui"
+            android:layout_centerVertical="true"
+            android:layout_margin="8dp"
+            android:background="#FFFFFF"
+            android:elevation="2dp"
+            android:text="Informações aparecerão aqui"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:padding="12dp"/>
     </ScrollView>
 
+    <!-- LinearLayout na parte inferior -->
     <LinearLayout
         android:id="@+id/linear_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:padding="8dp">
 
         <Button
             android:id="@+id/scannerBtn"
@@ -35,7 +68,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:text="Escanear rótulo" />
+            android:backgroundTint="#56CCD9"
+            android:text="Escanear rótulo"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/copyBtn"
@@ -43,8 +78,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
             android:layout_weight="1"
-            android:text="Copiar texto" />
+            android:backgroundTint="#56CCD9"
+            android:text="Copiar texto"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
-
 
 </RelativeLayout>

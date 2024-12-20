@@ -5,13 +5,18 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +58,8 @@ public class BuscaRotulo extends AppCompatActivity {
     private final CompoundList cl = new CompoundList();
     private final List<String> keywords = cl.getKeywords();
     private CompostoDatabaseHelper dbHelper;
+    private GridLayout gridLayout;
+    private int columnCount = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +75,10 @@ public class BuscaRotulo extends AppCompatActivity {
         scannerBtn = findViewById(R.id.scannerBtn);
         copyBtn = findViewById(R.id.copyBtn);
         textView_data = findViewById(R.id.textView_data);
-        
+        gridLayout = findViewById(R.id.gridLayout);
+
+        gridLayout.setColumnCount(columnCount);
+
         requestPermissionLauncher = registerForActivityResult( //Pedindo permissao da camera
                 new ActivityResultContracts.RequestPermission(),
                 isGranted -> {
@@ -86,6 +96,7 @@ public class BuscaRotulo extends AppCompatActivity {
                     if(success){
                         Bitmap bitmap = BitmapFactory.decodeFile(currentPhotoPath);
                         //cameraImage.setImageBitmap(bitmap); (ImageView)
+                        gridLayout.removeAllViews();
                         recognizeText(bitmap);
                     }
                 }
@@ -136,8 +147,9 @@ public class BuscaRotulo extends AppCompatActivity {
                             }
 
                             // Busca o composto usando a primeira palavra-chave
+                            createButton(gridLayout, result, columnCount, textView_data);
                             String dadosComposto = buscarDadosDoComposto(result.get(0));
-                            textView_data.setText(dadosComposto);
+                            textView_data.setText(result.toString());
                         } catch (Exception e) {
                             Log.e("DatabaseError", "Erro ao buscar dados do composto: " + e.getMessage());
                             textView_data.setText("Erro ao acessar o banco de dados.");
@@ -179,24 +191,47 @@ public class BuscaRotulo extends AppCompatActivity {
         }
         return palavrasEncontradas;
     }
-//    private void initializeDatabase() {
-//        databaseHelper = new CompostoDatabaseHelper(this);
-//        databaseHelper.verificarEAtualizarDados();
-//    }
-        private String buscarDadosDoComposto(String nomeComposto) {
-            Composto compostoLocal = dbHelper.getCompostoByNome(nomeComposto);
-            if (compostoLocal != null) {
-                return String.format(
-                        "Nome: %s\n\n" +
-                                "Descrição: %s\n\n" +
-                                "Função: %s",
-                        compostoLocal.getNome(),
-                        compostoLocal.getDescricao(),
-                        compostoLocal.getFuncao()
-                );
-            } else {
-                return "Composto nao encontrado no banco de dados";
-            }
-
+    private String buscarDadosDoComposto(String nomeComposto) {
+        Composto compostoLocal = dbHelper.getCompostoByNome(nomeComposto);
+        if (compostoLocal != null) {
+            return String.format(
+                    "Nome: %s\n\n" +
+                            "Descrição: %s\n\n" +
+                            "Função: %s",
+                    compostoLocal.getNome(),
+                    compostoLocal.getDescricao(),
+                    compostoLocal.getFuncao()
+            );
+        } else {
+            return "Composto nao encontrado no banco de dados";
         }
+    }
+    private void createButton(GridLayout container, List<String> items, int columnCount, TextView textView_data){
+        for (int i = 0; i < items.size(); i++) {
+            String item = items.get(i);
+
+            Button button = new Button(this);
+            button.setText(item);
+            button.setBackgroundColor(Color.parseColor("#56CCD9"));
+            //button.setTextColor(Color.parseColor("#FFFFFF"));
+
+            GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+            params.width = 0;
+            params.height = 200;
+            params.columnSpec = GridLayout.spec(i % columnCount, 1, 1f);
+            params.rowSpec = GridLayout.spec(i / columnCount);
+            params.setMargins(2,2,2,2);
+
+
+            button.setLayoutParams(params);
+
+            button.setOnClickListener(v -> {
+                        String dadosComposto = buscarDadosDoComposto(item);
+                        textView_data.setText(dadosComposto);
+                    }
+            );
+
+            gridLayout.addView(button);
+        }
+    }
 }
