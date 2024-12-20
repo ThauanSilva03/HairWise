@@ -3,6 +3,7 @@ package com.example.hairwise;
 import android.Manifest;
 import android.content.ClipData;
 import android.content.ClipboardManager;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,6 +56,7 @@ public class BuscaRotulo extends AppCompatActivity {
     private CompostoDatabaseHelper dbHelper;
     private GridLayout gridLayout;
     private int columnCount = 3;
+    private ImageView btnHome, btnSearch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +73,22 @@ public class BuscaRotulo extends AppCompatActivity {
         copyBtn = findViewById(R.id.copyBtn);
         textView_data = findViewById(R.id.textView_data);
         gridLayout = findViewById(R.id.gridLayout);
+        btnSearch = findViewById(R.id.btnSearch);
+        btnHome = findViewById(R.id.btnHome);
+
 
         gridLayout.setColumnCount(columnCount);
+
+
+        btnHome.setOnClickListener(view -> {
+            Intent intent = new Intent(BuscaRotulo.this, Home.class);
+            startActivity(intent);
+        });
+
+        btnSearch.setOnClickListener(view -> {
+            Intent intent = new Intent(BuscaRotulo.this, MainActivity.class);
+            startActivity(intent);
+        });
 
         requestPermissionLauncher = registerForActivityResult(
                 new ActivityResultContracts.RequestPermission(),

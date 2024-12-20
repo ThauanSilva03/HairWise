@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textViewResultadoAPI;
     private CompostoDatabaseHelper dbHelper;
     private LinearLayout linearLayoutAPI;
+    private ImageView btnSearch, btnHome, btnCamera;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,16 +38,24 @@ public class MainActivity extends AppCompatActivity {
         textViewResultadoLocal = findViewById(R.id.textViewResultadoLocal);
         textViewResultadoAPI = findViewById(R.id.textViewResultadoAPI);
         linearLayoutAPI = findViewById(R.id.apiResponseLayout);
-        btnVoltar = findViewById(R.id.buttonVoltar);
+        btnHome = findViewById(R.id.btnHome);
+        btnCamera = findViewById(R.id.btnCamera);
+
 
         initializeDatabase();
 
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
+
+        btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, Home.class);
                 startActivity(intent);
             }
+        });
+
+        btnCamera.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, BuscaRotulo.class);
+            startActivity(intent);
         });
 
         buttonBuscar.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 buscarDadosNaAPI(nomeComposto);
             }
         });
+
+
     }
 
     private void initializeDatabase() {
