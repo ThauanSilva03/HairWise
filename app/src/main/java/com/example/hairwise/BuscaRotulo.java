@@ -39,6 +39,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class BuscaRotulo extends AppCompatActivity {
 
     private Button scannerBtn, copyBtn;
@@ -48,6 +52,7 @@ public class BuscaRotulo extends AppCompatActivity {
     private ActivityResultLauncher<Uri> takePictureLauncher;
     private final CompoundList cl = new CompoundList();
     private final List<String> keywords = cl.getKeywords();
+    private CompostoDatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -114,32 +119,56 @@ public class BuscaRotulo extends AppCompatActivity {
         }
     }
 
-    private void recognizeText(Bitmap bitmap){
+    private void recognizeText(Bitmap bitmap) {
         InputImage image = InputImage.fromBitmap(bitmap, 0);
         TextRecognizer recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
 
         recognizer.process(image)
                 .addOnSuccessListener(ocrText -> {
+                    // Extrai palavras-chave reconhecidas
                     List<String> result = extrairPalavras(ocrText.getText(), keywords);
-                    textView_data.setText(result.toString());
+
+                    if (result != null && !result.isEmpty()) {
+                        try {
+                            // Certifique-se de que o dbHelper foi inicializado
+                            if (dbHelper == null) {
+                                dbHelper = new CompostoDatabaseHelper(this);
+                            }
+
+                            // Busca o composto usando a primeira palavra-chave
+                            String dadosComposto = buscarDadosDoComposto(result.get(0));
+                            textView_data.setText(dadosComposto);
+                        } catch (Exception e) {
+                            Log.e("DatabaseError", "Erro ao buscar dados do composto: " + e.getMessage());
+                            textView_data.setText("Erro ao acessar o banco de dados.");
+                        }
+                    } else {
+                        // Caso nenhuma palavra-chave seja encontrada
+                        textView_data.setText("Nenhuma palavra-chave reconhecida.");
+                    }
+
                     textView_data.setMovementMethod(new ScrollingMovementMethod());
                     copyBtn.setVisibility(View.VISIBLE);
+
                     copyBtn.setOnClickListener(v -> {
                         ClipboardManager clipboard = ContextCompat.getSystemService(
                                 this,
                                 ClipboardManager.class
                         );
-                        ClipData clip = ClipData.newPlainText("Recognized text", result.toString() );
-                        if(clipboard != null){
+                        String textoParaCopiar = textView_data.getText().toString();
+
+                        ClipData clip = ClipData.newPlainText("Recognized text", textoParaCopiar);
+                        if (clipboard != null) {
                             clipboard.setPrimaryClip(clip);
                             Toast.makeText(this, "Texto copiado", Toast.LENGTH_SHORT).show();
                         }
                     });
                 })
                 .addOnFailureListener(e ->
-                    Toast.makeText(this, "Failed to recognized text", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "Falha ao reconhecer texto.", Toast.LENGTH_SHORT).show()
                 );
     }
+
     public List<String> extrairPalavras(String texto, List<String> palavrasChaves){
         List<String> palavrasEncontradas = new ArrayList<>();
 
@@ -154,4 +183,20 @@ public class BuscaRotulo extends AppCompatActivity {
 //        databaseHelper = new CompostoDatabaseHelper(this);
 //        databaseHelper.verificarEAtualizarDados();
 //    }
+        private String buscarDadosDoComposto(String nomeComposto) {
+            Composto compostoLocal = dbHelper.getCompostoByNome(nomeComposto);
+            if (compostoLocal != null) {
+                return String.format(
+                        "Nome: %s\n\n" +
+                                "Descrição: %s\n\n" +
+                                "Função: %s",
+                        compostoLocal.getNome(),
+                        compostoLocal.getDescricao(),
+                        compostoLocal.getFuncao()
+                );
+            } else {
+                return "Composto nao encontrado no banco de dados";
+            }
+
+        }
 }

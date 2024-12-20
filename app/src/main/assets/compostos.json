@@ -1,6 +1,11 @@
 [
     {
-        "nome": "Aqua/Water",
+        "nome": "Aqua",
+        "descricao": "É a água usada como base em produtos cosméticos. Atua como solvente, permitindo que os outros ingredientes se misturem uniformemente. Em cosméticos, a água é purificada para remover impurezas e evitar contaminações.",
+        "funcao": "Serve como base para diluir outros ingredientes e facilitar a aplicação do produto. Também contribui para a hidratação inicial da pele ou cabelo."
+    },
+    {
+        "nome": "Water",
         "descricao": "É a água usada como base em produtos cosméticos. Atua como solvente, permitindo que os outros ingredientes se misturem uniformemente. Em cosméticos, a água é purificada para remover impurezas e evitar contaminações.",
         "funcao": "Serve como base para diluir outros ingredientes e facilitar a aplicação do produto. Também contribui para a hidratação inicial da pele ou cabelo."
     },
@@ -35,6 +40,16 @@
         "funcao": "Fornece um aroma agradável, melhorando a experiência sensorial do usuário."
     },
     {
+        "nome": "Parfum",
+        "descricao": "É uma mistura de compostos aromáticos projetados para conferir fragrância agradável ao produto. A composição exata pode variar de acordo com o fabricante.",
+        "funcao": "Fornece um aroma agradável, melhorando a experiência sensorial do usuário."
+    },
+    {
+        "nome": "Fragrance",
+        "descricao": "É uma mistura de compostos aromáticos projetados para conferir fragrância agradável ao produto. A composição exata pode variar de acordo com o fabricante.",
+        "funcao": "Fornece um aroma agradável, melhorando a experiência sensorial do usuário."
+    },
+    {
         "nome": "Hexylene Glycol",
         "descricao": "É um solvente usado em cosméticos para dissolver ingredientes e melhorar a estabilidade da fórmula. Também possui propriedades umectantes, ajudando a reter a umidade.",
         "funcao": "Atua como solvente e agente umectante, mantendo a hidratação na pele e na fórmula."
@@ -61,6 +76,16 @@
     },
     {
         "nome": "Ricinus Communis Seed Oil/Castor Seed Oil",
+        "descricao": "É o óleo de rícino, conhecido por suas propriedades hidratantes e emolientes. Rico em ácidos graxos, ajuda a nutrir a pele e o cabelo.",
+        "funcao": "Hidrata profundamente e ajuda a proteger a pele e o cabelo contra o ressecamento."
+    },
+    {
+        "nome": "Ricinus Communis Seed Oil",
+        "descricao": "É o óleo de rícino, conhecido por suas propriedades hidratantes e emolientes. Rico em ácidos graxos, ajuda a nutrir a pele e o cabelo.",
+        "funcao": "Hidrata profundamente e ajuda a proteger a pele e o cabelo contra o ressecamento."
+    },
+    {
+        "nome": "Castor Seed Oil",
         "descricao": "É o óleo de rícino, conhecido por suas propriedades hidratantes e emolientes. Rico em ácidos graxos, ajuda a nutrir a pele e o cabelo.",
         "funcao": "Hidrata profundamente e ajuda a proteger a pele e o cabelo contra o ressecamento."
     },

@@ -212,7 +212,7 @@ public class CompostoDatabaseHelper extends SQLiteOpenHelper {
 
         try {
             String[] columns = {COLUMN_NOME, COLUMN_DESCRICAO, COLUMN_FUNCAO};
-            String selection = COLUMN_NOME + " = ?";
+            String selection = "LOWER(" + COLUMN_NOME + ") = LOWER(?)";
             String[] selectionArgs = {nome};
 
             Cursor cursor = db.query(TABLE_COMPOSTOS, columns, selection, selectionArgs, null, null, null);
